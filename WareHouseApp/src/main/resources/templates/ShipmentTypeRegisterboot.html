@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org/">
+<head>
+<meta charset="ISO-8859-1">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+<!-- jquery link -->
+<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+<title>Insert title here</title>
+</head>
+<body>
+
+       <div class="container">
+                 <div class="card">
+                        <div class="card-header bg-primary text-white text-center">
+                              <h3>Welcome to Shipment Group</h3>
+                        </div>
+                        <div class="card-body">
+                            <form id="shipRegForm" th:action="@{/st/record}" method="post">
+                                <div class="row">
+                                      <div class="col-3">
+                                          Shipment Mode
+                                      </div>
+                                      <div class="col-5">
+                                            <select name="shipmentMode"  id="shipmentMode"class="form-control">
+                                                              <option value=" ">-SELECT-</option>
+                                                              <option value=" Air">Air</option>
+                                                              <option value=" Truck ">Truck</option>
+                                                              <option value=" Ship">Ship</option>
+                                                              <option value=" Train">Train</option>
+                                                      </select>
+                                      </div>
+                                      <div class="col-4">
+                                           <span id="shipmentModeError"></span>
+                                      </div>
+                                     
+                                </div >
+                                <div class="row">
+                                        <div class="col-3">
+                                             <label>Shipment Code :</label>
+                                        </div>
+                                        <div class="col-5">
+                                               <input type="text" name="shipmentCode" id="shipmentCode" class="form-control"/> 
+                                              
+                                        </div>
+                                        <div class="col-4">
+                                              <span id="shipmentCodeError"></span>
+                                        </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-3">
+                                         <label>Enable ShipMent:</label>
+                                    </div>
+                                     <div class="col-5">
+                                             <input type="radio" name="enableShipment" value="yes"/>YES 
+                                             <input type="radio" name="enableShipment" value="no"/>No   
+                                     </div>
+                                      <div class="col-4">
+                                             <span id="enableShipmentError"></span>
+                                      </div> 
+                                </div>   
+                                 <div class="row">
+                                    <div class="col-3">
+                                        <label>Shipment Grade:</label>
+                                    </div>
+                                     <div class="col-5">
+                                           <input type="radio" name="shipmentGrade" value="A"/>A
+                                           <input type="radio" name="shipmentGrade" value="B"/>B
+                                           <input type="radio" name="shipmentGrade" value="C"/>C
+                                     </div>
+                                      <div class="col-4">
+                                              <span id="shipmentGradeError"></span>
+                                      </div> 
+                                </div>   
+                                 <div class="row">
+                                    <div class="col-3">
+                                        <label>Description :</label>
+                                    </div>
+                                     <div class="col-5">
+                                         <textarea name="shipmentDescription" id="shipmentDescription"class="form-control"></textarea>
+                                     </div>
+                                      <div class="col-4">
+                                             <span id="shipmentDescriptionError"></span>
+                                      </div> 
+                                </div>  
+                                <input type="submit" value="Submit the Record" class="btn btn-success"> 
+                            </form>
+                            
+                        </div><!-- card body -->
+                        
+                        <div class="card-footer alert alert-success text-center text-orange" th:if="${message!=null}">
+                                     <span th:text="${message}"/>
+                        </div>
+                 </div><!-- card -->
+             
+     
+       </div> <!-- container  -->
+   
+  <script th:src="@{/js/Shipment.js}"></script>
+</body>
+</html>

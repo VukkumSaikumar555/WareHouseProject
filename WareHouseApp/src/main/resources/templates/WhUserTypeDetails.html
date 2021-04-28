@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org/">
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"/>
+</head>
+<body>
+   <div class="container">
+     <div class="card">
+      <div class="card-header bg-primary  text-white text-center">
+          <h3 align="center">Welcome to WhUser Type Data</h3>
+      </div>
+      <div class="card-body">
+           <table class="table table-hover">
+                   <tr class="bg-success text-white">
+                    <th>ID</th>
+                    <th>User Type</th>
+                    <th>User Code</th>
+                   <!--   <th>User For</th>
+                    <th>Email</th>
+                    <th>Contact</th>
+                    <th>User ID</th>
+                    <th>User IF</th>
+                    <th>Id Number</th>  -->
+                    <th>Operations</th>
+                    
+             </tr>
+             <tr th:each="ob:${list}">
+                     <td th:text="${ob.id}"> </td>
+                      <td th:text="${ob.usertype}"> </td>
+                      <td th:text="${ob.usercode}"> </td>
+                     <!--   <td th:text="${ob.userfor}"> </td>
+                      <td th:text="${ob.email}"> </td>
+                      <td th:text="${ob.contact}"> </td>
+                      <td th:text="${ob.userid}"> </td>
+                      <td th:text="${ob.userif}"> </td>
+                      <td th:text="${ob.idnumber}"> </td> -->
+                      
+                     <td>            
+                     <a th:href="@{/wh/delete(id=${ob.id})}" class="btn btn-danger">DELETE</a> |
+                     <a th:href="@{/wh/edit(id=${ob.id})}" class="btn btn-success">EDIT</a>
+                     </td>
+            </tr>
+      </table>
+    </div>
+     
+  </div>
+   <div class="card-footer alert alert-primary text-center" th:if="${message!=null}">
+        <span th:text="${message}"></span>
+   </div>
+</div>
+   
+
+
+</body>
+</html>

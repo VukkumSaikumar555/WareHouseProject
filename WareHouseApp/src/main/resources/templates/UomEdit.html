@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+<!-- jquery link -->
+<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+<title>Insert title here</title>
+</head>
+<body>
+       <div class="container">
+                 <div class="card">
+                        <div class="card-header bg-primary text-white text-center">
+                              <h3>Welcome to UOM </h3>
+                        </div>
+                        <div class="card-body">
+                            <form id="UomRegForm" th:action="@{/uom/update}" method="post" th:object="${uom}">
+                               <div class="row">
+                                      <div class="col-3">
+                                          <label>UOM ID</label>
+                                      </div>
+                                      <div class="col-5">
+                                          <input type="text"  th:field="*{id}" readOnly>
+                                      </div>
+                                    </div>  
+                               
+                                <div class="row">
+                                      <div class="col-3">
+                                          UOM TYPE:
+                                      </div>
+                                      <div class="col-5">
+                                            <select th:field="*{uomtype}"  id="uomtype"class="form-control">
+                                                              <option value=" ">-SELECT-</option>
+                                                              <option value="Packing">Packing</option>
+                                                              <option value="NoPacking">Packing</option>
+                                                              <option value="NA">-NA-</option>
+                                                             
+                                                      </select>
+                                      </div>
+                                      <div class="col-4">
+                                           <span id="uomtypeError"></span>
+                                      </div>
+                                     
+                                </div >
+                                <div class="row">
+                                        <div class="col-3">
+                                             <label>Uom Model:</label>
+                                        </div>
+                                        <div class="col-5">
+                                               <input type="text" th:field="*{uomModel}" id="uomModel" class="form-control"/> 
+                                              
+                                        </div>
+                                        <div class="col-4">
+                                              <span id="uomModelError"></span>
+                                        </div>
+                                </div>
+                               
+                                
+                                        
+                                 <div class="row">
+                                    <div class="col-3">
+                                        <label>Description :</label>
+                                    </div>
+                                     <div class="col-5">
+                                         <textarea th:field="*{description}" id="description"class="form-control"></textarea>
+                                     </div>
+                                      <div class="col-4">
+                                             <span id="descriptionError"></span>
+                                      </div> 
+                                </div>  
+                                <input type="submit" value="Update Record" class="btn btn-success"> 
+                            </form>
+                            
+                        </div><!-- card body -->
+                        
+                        <div class="card-footer alert alert-success text-center text-orange" th:if="${message!=null}">
+                                     <span th:text="${message}"/>
+                        </div>
+                 </div><!-- card -->
+             
+     
+       </div> <!-- container  -->
+</body>
+</html>

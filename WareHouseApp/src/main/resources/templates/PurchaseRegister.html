@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org/">
+<head>
+<meta charset="ISO-8859-1">
+ <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"/>
+<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+<title>Insert title here</title>
+</head>
+<body>
+      <div class="container">
+        <div class="card">
+            <div class="card-header bg-danger text-warning text-center">
+                <h3>Welcome To PurchaseOrder</h3>
+            </div>
+            <div class="card-body">
+                <form id="idpurchase" method="POST"  th:action="@{/po/save}" th:object="${PO}">
+                    <div class="row">
+                        <div class="col-3">
+                            <label>Order Code</label>
+                        </div>
+                        <div class="col-4">
+                            <input type="text" th:field="*{OrderCode}" id="OrderCode" class="form-control">
+                        </div>
+                        <div class="col-5">
+                            <span id="OrderCodeError"></span>
+                        </div>
+                    </div>
+
+                    <div class="row mt-1">
+                        <div class="col-3">
+                            <label>Shipment Code</label>
+                        </div>
+                        <div class="col-4">
+                            <select name="code" id="code" class="form-control">
+                                <option value=" ">--select--</option>
+                                <option value="Ship">Ship</option>
+                            </select>
+                        </div>
+                        <div class="col-5">
+                            <span id="CodeError"></span>
+                        </div>
+                    </div>
+
+                    <div class="row mt-1">
+                        <div class="col-3">
+                            <label>Vendor</label>
+                        </div>
+                        <div class="col-4">
+                            <select name="vendor" id="vendor" class="form-control">
+                                <option value="">--select--</option>
+                                <option value="vendor">Vendor</option>
+                            </select>
+                        </div>
+                        <div class="col-5">
+                            <span id="vendorError"></span>
+                        </div>
+                    </div>
+
+                    <div class="row mt-1">
+                        <div class="col-3">
+                            <label>Reference Number</label>
+                        </div>
+                        <div class="col-4">
+                            <input type="text" name="refNumber" id="refNumber" class="form-control">
+                        </div>
+                        <div class="col-5">
+                            <span id="refNumberError"></span>
+                        </div>
+                    </div>
+
+                    <div class="row mt-1">
+                        <div class="col-3">
+                            <label>Quality Check</label>
+                        </div>
+                        <div class="col-4">
+                            <input type="radio" name="qtycheck" value="Required">Required
+                            <input type="radio" name="qtycheck" value="NotRequired">Not Required
+                            
+                        </div>
+                        <div class="col-5">
+                            <span id="qtycheckError"></span>
+                        </div>
+                    </div>
+
+                    <div class="row mt-1" >
+                        <div class="col-3">
+                            <label>Default Status</label>
+                        </div>
+                        <div class="col-4" >
+                            <input type="text" th:field="*{status}" id="status" class="form-control" readOnly>
+                        </div>
+                        <div class="col-5">
+                            <span id="statusError"></span>
+                        </div>
+                    </div>
+
+                    <div class="row mt-1">
+                        <div class="col-3">
+                            <label>Description</label>
+                        </div>
+                        <div class="col-4">
+                            <textarea name="description" id="description" class="form-control"></textarea>
+                            
+                        </div>
+                        <div class="col-5">
+                            <span id="descriptionError"></span>
+                        </div>
+                    </div>
+
+                    <div class="text-center mt-3">
+                    <input type="submit" value="CREATE ORDER" class="btn btn-warning">
+                    </div>
+                </form>
+
+            </div>
+        </div>
+
+    </div>
+   <script th:src="@{/js/PO.js}"></script>
+</body>
+</html>

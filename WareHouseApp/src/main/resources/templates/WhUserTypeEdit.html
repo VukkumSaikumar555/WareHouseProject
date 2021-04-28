@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org/">
+<head>
+<meta charset="ISO-8859-1">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" />
+  <script src="https://code.jquery.com/jquery-3.2.1.min.js">
+  </script>
+<title>Insert title here</title>
+</head>
+<body>
+  <div class="container">
+    <div class="card ">
+      <div class="card-header text-center bg-primary text-white">
+        <h3>WareHouse UserType REGISTER PAGE</h3>
+      </div>
+      <div class="card-body">
+        <form id="whuserform" th:action="@{/wh/update}" method="post" th:object="${WhUserType}">
+           <div class="row">
+                 <div class="col-3">
+                      ID:
+                 </div>
+                 <div class="col-4">
+                     <input type="text" th:field="*{id}" readOnly>
+                 </div>
+           </div>
+          <div class="row">
+            <div class="col-3">
+               USER TYPE:
+            </div>
+            <div class="col-4">
+              <input type="radio" th:field="*{usertype}" value="Vendor">Vendor
+              <input type="radio" th:field="*{usertype}" value="Customer">Customer
+            </div>
+            <div class="col-5">
+              <span id="usertypeError"></span>
+            </div>
+
+          </div>
+
+          <div class="row">
+            <div class="col-3">
+              USER CODE:
+            </div>
+            <div class="col-4">
+              <input type="text" th:field="*{usercode}" id="usercode" class="form-control">
+            </div>
+            <div class="col-5">
+              <span id="usercodeError">
+
+              </span>
+            </div>
+
+          </div>
+          <div class="row">
+            <div class="col-3">
+              USER FOR:  
+            </div>
+            <div class="col-4">
+                <input type="text" th:field="*{userfor}" id="userfor" readonly class="form-control">
+            </div>
+            <div class="col-5">
+               <span id="userforError"></span>
+            </div>
+          </div>
+          
+          <div class="row">
+              <div class="col-3">
+                EMAIL:
+              </div>
+              <div class="col-4">
+                <input type="text" th:field="*{email}" id="email" class="form-control">
+               
+              </div>
+              <div class="col-5">
+                   <span id="emailError"></span>
+              </div>
+          </div>
+          
+          <div class="row">
+            <div class="col-3">
+              CONTACT:
+            </div>
+            <div class="col-4">
+              <textarea th:field="*{contact}" id="contact" class="form-control"> </textarea>
+            </div>
+            <div class="col-5">
+                <span id="contactError"></span>
+            </div>
+          </div>
+          
+             <div class="row">
+						<div class="col-3">
+							<label>USER ID TYPE</label>
+						</div>
+						<div class="col-4">
+							<select th:field="*{userid}" id="userid" class="form-control">
+								<option value="">-SELECT-</option>
+								<option value="PAN CARD">PAN CARD</option>
+								<option value="AADHAR CARD">AADHAR CARD</option>
+								<option value="VOTER ID CARD">VOTER ID CARD</option>
+								<option value="OTHER">OTHER</option>
+							</select>
+						</div>
+						<div class="col-5">
+							<span id="useridError"></span>
+						</div>
+					</div>
+                   <div class="row" id="ifOtherRow">
+						<div class="col-3">
+							<label>*IF OTHER</label>
+						</div>
+						<div class="col-4">
+							<input type="text" th:field="*{userif}" id="userif" class="form-control" />
+						</div>
+						<div class="col-5">
+							<span id="userifError"></span>
+						</div>
+					</div>
+					
+					 <div class="row" >
+						<div class="col-3">
+							<label>ID NUMBER</label>
+						</div>
+						<div class="col-4">
+							<input type="text" th:field="*{idnumber}" id="idnumber" class="form-control" />
+						</div>
+						<div class="col-5">
+							<span id="idnumberError"></span>
+						</div>
+					</div>
+					
+          
+          
+          <input type="submit"  value="Edit USER" class="btn btn-success ">
+          
+        </form>
+        
+      </div>
+      <!--card body-->
+      <div class="card-footer alert alert-success text-center text-orange" th:if="${message!=null}">
+        <span th:text="${message}"></span>
+      </div>
+    </div>
+    <!--card class-->
+   
+
+ </div><!-- container class -->
+  <script th:src="@{/js/WHTYPE.js}"></script>                       
+
+</body>
+</html>

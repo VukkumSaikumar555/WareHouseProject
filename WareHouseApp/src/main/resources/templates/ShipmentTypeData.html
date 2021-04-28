@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org/">
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"/>
+
+</head>
+<body>
+      <h3 align="center">Welcome to Shipment Type Data</h3>
+      <table border="0" frame="box" rules="all" align="center" cellpadding="20">
+             <tr>
+                    <th>ID</th>
+                    <th>Mode</th>
+                    <th>Code</th>
+                    <th>ShipmentEnabled</th>
+                    <th>Grade</th>
+                    <th colspan="2">Description</th>
+             </tr>
+             <tr th:each="ob:${list}">
+                     <td th:text="${ob.id}"> </td>
+                      <td th:text="${ob.ShipmentMode}"> </td>
+                      <td th:text="${ob.ShipmentCode}"> </td>
+                      <td th:text="${ob.EnableShipment}"> </td>
+                      <td th:text="${ob.ShipmentGrade}"> </td>
+                      <td th:text="${ob.ShipmentDescription}"> </td>
+                      
+                     <td>            
+                     <a href="#">DELETE</a> | <a href="#">INSERT</a>
+                     </td>
+      </tr>
+      </table>
+</body>
+</html>
