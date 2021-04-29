@@ -14,7 +14,7 @@ import lombok.Data;
 
 @Data
 @Entity
-@Table(name = "purchase_order_tab")
+@Table(name = "purchase_order_table")
 public class PurchaseOrder {
 	      @Id
 	      @GeneratedValue(generator ="purchase",strategy = GenerationType.SEQUENCE)
@@ -29,12 +29,16 @@ public class PurchaseOrder {
           private String qtycheck;
 	      @Column(name = "po_status_col")
           private String status;
-	      @Column(name = "po_descp_col")
+	      @Column(name = "po_description_col")
           private String description;
-	      @ManyToOne
-	      @JoinColumn(name = "shipment_idfk_col")
+	     // @ManyToOne
+	     //@JoinColumn(name = "shipment_idfk_col")
+          @Column(name = "po_ship_col")
           private ShipmentType code;
-	      @ManyToOne
-	      @JoinColumn(name = "vendor_idfk_col")
-          private WhUserType vendor;
+          //private String code;
+	     // @ManyToOne
+	      //@JoinColumn(name = "vendor_idfk_col")
+         @Column(name = "po_vendor_col")
+        private WhUserType vendor;
+       //  private String vendor;
 }

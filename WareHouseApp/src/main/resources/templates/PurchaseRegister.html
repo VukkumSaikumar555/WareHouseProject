@@ -13,13 +13,13 @@
                 <h3>Welcome To PurchaseOrder</h3>
             </div>
             <div class="card-body">
-                <form id="idpurchase" method="POST"  th:action="@{/po/save}" th:object="${PO}">
+                <form id="idpurchase" method="post"  th:action="@{/po/save}" >
                     <div class="row">
                         <div class="col-3">
                             <label>Order Code</label>
                         </div>
                         <div class="col-4">
-                            <input type="text" th:field="*{OrderCode}" id="OrderCode" class="form-control">
+                            <input type="text" name="OrderCode" id="OrderCode" class="form-control">
                         </div>
                         <div class="col-5">
                             <span id="OrderCodeError"></span>
@@ -87,7 +87,7 @@
                             <label>Default Status</label>
                         </div>
                         <div class="col-4" >
-                            <input type="text" th:field="*{status}" id="status" class="form-control" readOnly>
+                            <input type="text" name="status" id="status" class="form-control" readOnly>
                         </div>
                         <div class="col-5">
                             <span id="statusError"></span>
@@ -112,6 +112,9 @@
                     </div>
                 </form>
 
+            </div>
+            <div class="card-footer alert-success text-center" th:if="${message!=null}">
+                   <span th:text="${message}"/>
             </div>
         </div>
 

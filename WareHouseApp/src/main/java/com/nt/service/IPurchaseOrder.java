@@ -1,5 +1,7 @@
 package com.nt.service;
 
-public interface IPurchaseOrder {
+import com.nt.model.PurchaseOrder;
 
+public interface IPurchaseOrder {
+      public PurchaseOrder savePO(PurchaseOrder po);
 }
