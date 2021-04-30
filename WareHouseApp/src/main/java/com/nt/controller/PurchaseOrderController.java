@@ -1,5 +1,7 @@
 package com.nt.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -22,6 +24,7 @@ public class PurchaseOrderController {
 	public String getHome(Model model) {
 		PurchaseOrder po=new PurchaseOrder();
 		po.setStatus("OPEN");
+		//po.setOrderCode("CX1234");
 		model.addAttribute("PO", po);
 		return "PurchaseRegister";
 	}
@@ -36,6 +39,13 @@ public class PurchaseOrderController {
 				                         toString();
 		model.addAttribute("message",msg);
 		return "PurchaseRegister";
+	}
+	
+	@GetMapping("/all")
+	public String getAllRecords(Model model) {
+		List<PurchaseOrder> listpo=service.getAllRecord();
+		model.addAttribute("list", listpo);
+		return "PurchaseDataList";
 	}
 	
 }//class

@@ -34,11 +34,11 @@ public class PurchaseOrder {
 	     // @ManyToOne
 	     //@JoinColumn(name = "shipment_idfk_col")
           @Column(name = "po_ship_col")
-          private ShipmentType code;
-          //private String code;
+          //private ShipmentType code;
+         private String code;
 	     // @ManyToOne
 	      //@JoinColumn(name = "vendor_idfk_col")
          @Column(name = "po_vendor_col")
-        private WhUserType vendor;
-       //  private String vendor;
+       // private WhUserType vendor;
+         private String vendor;
 }
