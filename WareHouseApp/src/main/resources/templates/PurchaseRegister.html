@@ -19,7 +19,7 @@
                             <label>Order Code</label>
                         </div>
                         <div class="col-4">
-                            <input type="text" th:field="*{OrderCode}" id="OrderCode" class="form-control">
+                            <input type="text" name="OrderCode" id="OrderCode" class="form-control">
                         </div>
                         <div class="col-5">
                             <span id="OrderCodeError"></span>
@@ -31,9 +31,9 @@
                             <label>Shipment Code</label>
                         </div>
                         <div class="col-4">
-                            <select name="code" id="code" class="form-control">
+                            <select name="ShipmentType.id" id="code" class="form-control">
                                 <option value=" ">--select--</option>
-                                <option value="Ship">Ship</option>
+                                <option th:each="ob:${ships}" th:value="${ob.key}" th:text="${ob.value}">
                             </select>
                         </div>
                         <div class="col-5">
@@ -48,7 +48,7 @@
                         <div class="col-4">
                             <select name="vendor" id="vendor" class="form-control">
                                 <option value="">--select--</option>
-                                <option value="vendor">Vendor</option>
+                                <option th:each="ob:${whuser}" th:value="${ob.key}" th:text="${ob.value}"></option>
                             </select>
                         </div>
                         <div class="col-5">
@@ -87,7 +87,7 @@
                             <label>Default Status</label>
                         </div>
                         <div class="col-4" >
-                            <input type="text" th:field="*{status}" value="OPE" id="status" class="form-control" readOnly>
+                            <input type="text" th:field="*{status}"  id="status" class="form-control" readonly>
                         </div>
                         <div class="col-5">
                             <span id="statusError"></span>

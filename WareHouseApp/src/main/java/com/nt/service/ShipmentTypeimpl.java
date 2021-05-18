@@ -1,6 +1,7 @@
 package com.nt.service;
 
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,6 +9,7 @@ import org.springframework.stereotype.Service;
 
 import com.nt.model.ShipmentType;
 import com.nt.repo.ShipMentTypeRepo;
+import com.nt.util.CollectionUtil;
 
 @Service
 public class ShipmentTypeimpl implements IShipmentType {
@@ -49,6 +51,13 @@ public class ShipmentTypeimpl implements IShipmentType {
 	  ShipmentType type=repo.save(ship);
 		return type.getId();
 		
+	}
+
+	@Override
+	public Map<Integer, String> getShipmentTypeIdCode() {
+		List<Object[]> list=repo.getShipmentTypeIdCode();
+		Map<Integer,String> ships=CollectionUtil.convertToMap(list);
+		return ships;
 	}
 
 }

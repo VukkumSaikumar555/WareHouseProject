@@ -1,6 +1,7 @@
 package com.nt.service;
 
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,6 +9,7 @@ import org.springframework.stereotype.Service;
 
 import com.nt.model.WhUserType;
 import com.nt.repo.WhUserTypeRepo;
+import com.nt.util.WhTypeLstMapConversion;
 @Service
 public class WhUserTypeimpl implements IWhUserType {
 	
@@ -48,6 +50,13 @@ public class WhUserTypeimpl implements IWhUserType {
 	public Integer UpdateWhUserType(WhUserType ship) {
 		WhUserType user=repo.save(ship);
 		return user.getId();
+	}
+
+	@Override
+	public Map<Integer, String> getIdAndCodeByType(String usertype) {
+	List<Object[]> list=repo.getIdAndCodeByType(usertype);
+	Map<Integer,String> maps=WhTypeLstMapConversion.convertToMap(list);
+		return maps;
 	}
 
 	

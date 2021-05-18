@@ -20,7 +20,7 @@
             //3.validating a function
             function validate_ordercode(){
                 var val=$("#OrderCode").val();
-                var exp = /^[A-Z0-9\.\-]{4,12}$/
+                var exp = /^[A-Za-z0-9\.\-]{4,12}$/
                 if(val==""){
                     $("#OrderCodeError").show();
                     $("#OrderCodeError").html("Please <b> Enter </b> a text");

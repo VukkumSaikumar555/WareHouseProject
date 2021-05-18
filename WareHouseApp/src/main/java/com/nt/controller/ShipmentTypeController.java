@@ -2,6 +2,7 @@ package com.nt.controller;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.function.Predicate;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -48,7 +49,10 @@ public class ShipmentTypeController {
     @GetMapping("/delete")
     public String deleteById(@RequestParam Integer id,Model model) {
     	
-    	if(service.isShipmentTypeExists(id))
+    	Predicate<Integer> p=id1->service.isShipmentTypeExists(id);
+    	
+    	//if(service.isShipmentTypeExists(id))
+    	if(p.test(id))
     	{     
     		service.deleteShipmentType(id);
     		//create message
@@ -68,7 +72,9 @@ public class ShipmentTypeController {
     public String EditShipment(@RequestParam("id") Integer sid,Model model) {
     	String page=null;
 	   Optional<ShipmentType> opt=service.getOneShipmentType(sid);
-	   if(opt.isPresent()) {
+	   Predicate<Optional> p=op->opt.isPresent();
+	  // if(opt.isPresent()) {
+	   if(p.test(opt)) {
 		   model.addAttribute("shipmentType",opt.get());
 		   page="ShipmentTypeEditBoot";
 	   }

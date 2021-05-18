@@ -31,14 +31,21 @@ public class PurchaseOrder {
           private String status;
 	      @Column(name = "po_description_col")
           private String description;
-	     // @ManyToOne
-	     //@JoinColumn(name = "shipment_idfk_col")
-          @Column(name = "po_ship_col")
-          //private ShipmentType code;
-         private String code;
+	     @ManyToOne
+	     @JoinColumn(name = "shipment_idfk_col")
+          private ShipmentType code;
+         
 	     // @ManyToOne
 	      //@JoinColumn(name = "vendor_idfk_col")
          @Column(name = "po_vendor_col")
        // private WhUserType vendor;
          private String vendor;
+         
+        public PurchaseOrder(){
+        	 System.out.println("PurchaseOrder.PurchaseOrder()");
+         }
+        
+        
 }
+
+
