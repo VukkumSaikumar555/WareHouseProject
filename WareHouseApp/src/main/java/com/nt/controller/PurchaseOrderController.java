@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.nt.model.PurchaseOrder;
 import com.nt.service.IPurchaseOrder;
@@ -75,6 +76,15 @@ public class PurchaseOrderController {
 		List<PurchaseOrder> listpo=service.getAllRecord();
 		model.addAttribute("list", listpo);
 		return "PurchaseDataList";
+	}
+	
+	//screen 2 
+	@GetMapping("/parts")
+	public String getPurchaseDtls(@RequestParam("poID") Integer id,Model model) {
+		PurchaseOrder po=service.getPurchaseOrder(id);
+		model.addAttribute("po", po);
+		return "PurchaseDetails";
+		
 	}
 	
 }//class

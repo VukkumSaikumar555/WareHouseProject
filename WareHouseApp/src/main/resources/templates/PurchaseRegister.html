@@ -31,7 +31,7 @@
                             <label>Shipment Code</label>
                         </div>
                         <div class="col-4">
-                            <select name="ShipmentType.id" id="code" class="form-control">
+                            <select name="code.id" id="code" class="form-control">
                                 <option value=" ">--select--</option>
                                 <option th:each="ob:${ships}" th:value="${ob.key}" th:text="${ob.value}">
                             </select>

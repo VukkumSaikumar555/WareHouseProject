@@ -1,6 +1,7 @@
 package com.nt.service;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -24,6 +25,13 @@ public class PurchaseOrderimpl implements IPurchaseOrder {
 	public List<PurchaseOrder> getAllRecord() {
 		List<PurchaseOrder> listpo=repo.findAll();
 		return listpo;
+	}
+
+	@Override
+	public PurchaseOrder getPurchaseOrder(Integer id) {
+	Optional<PurchaseOrder> opt=repo.findById(id);
+	PurchaseOrder po=opt.get();
+		return po;
 	}
 
 }
