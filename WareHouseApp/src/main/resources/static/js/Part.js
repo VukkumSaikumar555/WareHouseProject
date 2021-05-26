@@ -54,7 +54,7 @@
             
             function validate_partcode(){
                 var val=$("#partcode").val();
-                var fmt=/[A-Z0-9\-]{4}/;
+                var fmt=/[A-Za-z0-9\-]{4}/;
                 if(val==""){
                     $("#partcodeError").show();
                     $("#partcodeError").html("Please <b> set the </b> code");

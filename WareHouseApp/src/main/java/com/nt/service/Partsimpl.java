@@ -1,6 +1,7 @@
 package com.nt.service;
 
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,6 +9,7 @@ import org.springframework.stereotype.Service;
 
 import com.nt.model.Parts;
 import com.nt.repo.PartRepo;
+import com.nt.util.PartsUtil;
 @Service
 public class Partsimpl implements IPart {
 	
@@ -48,6 +50,13 @@ public class Partsimpl implements IPart {
 	public Integer UpdatePart(Parts part) {
 		Parts part1=repo.save(part);
 		return part1.getId();
+	}
+
+	@Override
+	public Map<Integer, String> getPartIdAndCode() {
+		List<Object[]> list=repo.getPartsIdAndCode();
+		Map<Integer,String> map=PartsUtil.convertToMap(list);
+		return map;
 	}
 
 }

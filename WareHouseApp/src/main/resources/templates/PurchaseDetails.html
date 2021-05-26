@@ -20,6 +20,30 @@
                                  <th th:text="${po.status}" class="bg-primary text-dark text-center"></th>
                             </tr>  
                      </table>
+                            <form action="#">
+                               <div class="container">
+                               <div class="row">
+                                       <div class="col-3">
+                                              <label>CHOOSE PARTS:</label>
+                                       </div>
+                                       <div class="col-3">
+                                                 <select class="form-control">
+                                                        <option value="">--SELECT--</option>
+                                                         <option th:each="ob:${parts}" th:value="${ob.key}" th:text="${ob.value}" >
+                                                 </select>
+                                       </div>
+                                       <div class="col-2">
+                                           Quantity:
+                                       </div>
+                                       <div class="col-2">
+                                       <div>
+                                            <input type="number" min="1" max="1000" class="form-control">
+                                        
+                                       </div>
+                                      </div> 
+                                </div>    
+                               </div>
+                            </form>
                       
                     </div> 
                   

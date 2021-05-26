@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.nt.model.PurchaseOrder;
+import com.nt.service.IPart;
 import com.nt.service.IPurchaseOrder;
 import com.nt.service.IShipmentType;
 import com.nt.service.IWhUserType;
@@ -23,6 +24,9 @@ public class PurchaseOrderController {
 	
 	@Autowired
 	private IPurchaseOrder service;
+	
+	@Autowired
+	private IPart parts;
 	
 	@Autowired
 	private IShipmentType ships;
@@ -38,6 +42,11 @@ public class PurchaseOrderController {
 	private void childswhui(Model model) {
 		Map<Integer,String> maps=whuser.getIdAndCodeByType("Vendor");
 		model.addAttribute("whuser", maps);
+	}
+	
+	private void childsuiParts(Model model) {
+		Map<Integer,String> map=parts.getPartIdAndCode();
+		model.addAttribute("parts", map);
 	}
 	
 	@GetMapping("/record")
@@ -82,6 +91,7 @@ public class PurchaseOrderController {
 	@GetMapping("/parts")
 	public String getPurchaseDtls(@RequestParam("poID") Integer id,Model model) {
 		PurchaseOrder po=service.getPurchaseOrder(id);
+		childsuiParts(model);
 		model.addAttribute("po", po);
 		return "PurchaseDetails";
 		
