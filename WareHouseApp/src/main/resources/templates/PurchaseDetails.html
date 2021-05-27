@@ -23,10 +23,10 @@
                             <form action="#">
                                <div class="container">
                                <div class="row">
-                                       <div class="col-3">
+                                       <div class="col-2">
                                               <label>CHOOSE PARTS:</label>
                                        </div>
-                                       <div class="col-3">
+                                       <div class="col-5">
                                                  <select class="form-control">
                                                         <option value="">--SELECT--</option>
                                                          <option th:each="ob:${parts}" th:value="${ob.key}" th:text="${ob.value}" >
@@ -35,12 +35,14 @@
                                        <div class="col-2">
                                            Quantity:
                                        </div>
-                                       <div class="col-2">
-                                       <div>
+                                       <div class="col-1">
+                                       
                                             <input type="number" min="1" max="1000" class="form-control">
-                                        
-                                       </div>
+                
                                       </div> 
+                                      <div class="col-2">
+                                           <input type="submit" value="Add Parts" class="btn btn-info">
+                                      </div>
                                 </div>    
                                </div>
                             </form>
