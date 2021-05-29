@@ -20,14 +20,14 @@
                                  <th th:text="${po.status}" class="bg-primary text-dark text-center"></th>
                             </tr>  
                      </table>
-                            <form action="#">
+                            <form th:action="@{/po/addPart}" method="post">
                                <div class="container">
                                <div class="row">
                                        <div class="col-2">
                                               <label>CHOOSE PARTS:</label>
                                        </div>
                                        <div class="col-5">
-                                                 <select class="form-control">
+                                                 <select name="part.id" class="form-control">
                                                         <option value="">--SELECT--</option>
                                                          <option th:each="ob:${parts}" th:value="${ob.key}" th:text="${ob.value}" >
                                                  </select>
@@ -37,7 +37,7 @@
                                        </div>
                                        <div class="col-1">
                                        
-                                            <input type="number" min="1" max="1000" class="form-control">
+                                            <input type="number" name="qty" min="1" max="1000" class="form-control">
                 
                                       </div> 
                                       <div class="col-2">

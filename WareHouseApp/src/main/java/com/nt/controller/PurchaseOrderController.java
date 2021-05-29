@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.nt.model.PurchaseDtl;
 import com.nt.model.PurchaseOrder;
 import com.nt.service.IPart;
 import com.nt.service.IPurchaseOrder;
@@ -94,6 +95,13 @@ public class PurchaseOrderController {
 		childsuiParts(model);
 		model.addAttribute("po", po);
 		return "PurchaseDetails";
+		
+	}
+	
+	@PostMapping("/addPart")
+	public String addPoPart(@ModelAttribute PurchaseDtl purchasedtl ) {
+		System.out.println(purchasedtl);
+		return "redirect:parts?poID=";
 		
 	}
 	
