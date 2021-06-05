@@ -20,8 +20,9 @@
                                  <th th:text="${po.status}" class="bg-primary text-dark text-center"></th>
                             </tr>  
                      </table>
-                            <form th:action="@{/po/addPart}" method="post">
-                               <div class="container">
+                            <form th:action="@{/po/addPart}" method="post" th:object="${DTL}">
+                              <input type="hidden" th:field="*{po.id}">
+                            <div class="container">
                                <div class="row">
                                        <div class="col-2">
                                               <label>CHOOSE PARTS:</label>

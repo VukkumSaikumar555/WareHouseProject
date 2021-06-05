@@ -94,14 +94,24 @@ public class PurchaseOrderController {
 		PurchaseOrder po=service.getPurchaseOrder(id);
 		childsuiParts(model);
 		model.addAttribute("po", po);
+		
+		//form backing object
+		PurchaseDtl dtl=new PurchaseDtl();
+		dtl.setPo(po);
+		
+		model.addAttribute("DTL",dtl);
+		
 		return "PurchaseDetails";
 		
 	}
 	
 	@PostMapping("/addPart")
 	public String addPoPart(@ModelAttribute PurchaseDtl purchasedtl ) {
-		System.out.println(purchasedtl);
-		return "redirect:parts?poID=";
+		//System.out.println(purchasedtl);
+		Integer id=service.addParts(purchasedtl);
+		System.out.println(id);
+		//return "redirect:parts?poID="+purchasedtl.getPo().getId();
+		return "redirect:parts?poID="+id;
 		
 	}
 	

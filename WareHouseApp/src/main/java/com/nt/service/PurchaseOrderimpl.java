@@ -6,7 +6,9 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.nt.model.PurchaseDtl;
 import com.nt.model.PurchaseOrder;
+import com.nt.repo.IPurchaseDtl;
 import com.nt.repo.PurchaseOrderRepo;
 
 @Service
@@ -14,6 +16,9 @@ public class PurchaseOrderimpl implements IPurchaseOrder {
      
 	@Autowired
 	private PurchaseOrderRepo repo;
+	
+	@Autowired
+	private IPurchaseDtl detail;
 	
 	@Override
 	public PurchaseOrder savePO(PurchaseOrder po) {
@@ -32,6 +37,12 @@ public class PurchaseOrderimpl implements IPurchaseOrder {
 	Optional<PurchaseOrder> opt=repo.findById(id);
 	PurchaseOrder po=opt.get();
 		return po;
+	}
+
+	@Override
+	public Integer addParts(PurchaseDtl dtl) {
+		PurchaseDtl dtl1=detail.save(dtl);
+		return dtl1.getPo().getId();
 	}
 
 }
