@@ -47,6 +47,23 @@
                                 </div>    
                                </div>
                             </form>
+                            <hr>
+                            <table class="table table-hover">
+                                  <tr> 
+                                        <th>S.NO</th>
+                                        <th>ITEM</th>
+                                        <th>BASE COST</th>
+                                        <th>QUANTITY</th>
+                                        <th>OPERATION</th>
+                                  </tr>
+                                  <tr th:each="ob:${list}"> 
+                                         <td> </td>
+                                         <td th:text="${ob.part.partcode}"></td>
+                                         <td th:text="${ob.part.basecost}"></td>
+                                         <td th:text="${ob.qty}"></td>
+                                         <td><a href="#" class="btn btn-danger">Remove</a> </td>
+                                  </tr>
+                            </table>
                       
                     </div> 
                   

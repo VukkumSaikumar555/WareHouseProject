@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service;
 
 import com.nt.model.PurchaseDtl;
 import com.nt.model.PurchaseOrder;
-import com.nt.repo.IPurchaseDtl;
+import com.nt.repo.PurchaseDtlRepo;
 import com.nt.repo.PurchaseOrderRepo;
 
 @Service
@@ -18,7 +18,7 @@ public class PurchaseOrderimpl implements IPurchaseOrder {
 	private PurchaseOrderRepo repo;
 	
 	@Autowired
-	private IPurchaseDtl detail;
+	private PurchaseDtlRepo detail;
 	
 	@Override
 	public PurchaseOrder savePO(PurchaseOrder po) {
@@ -43,6 +43,12 @@ public class PurchaseOrderimpl implements IPurchaseOrder {
 	public Integer addParts(PurchaseDtl dtl) {
 		PurchaseDtl dtl1=detail.save(dtl);
 		return dtl1.getPo().getId();
+	}
+
+	@Override
+	public List<PurchaseDtl> getPurchaseDtlByOrderId(Integer id) {
+		
+		return detail.getPurchaseDtlByOrderId(id);
 	}
 
 }

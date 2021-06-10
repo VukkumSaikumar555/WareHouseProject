@@ -99,8 +99,11 @@ public class PurchaseOrderController {
 		PurchaseDtl dtl=new PurchaseDtl();
 		dtl.setPo(po);
 		
+		
 		model.addAttribute("DTL",dtl);
 		
+		List<PurchaseDtl> list=service.getPurchaseDtlByOrderId(po.getId());
+		model.addAttribute("list", list);
 		return "PurchaseDetails";
 		
 	}
