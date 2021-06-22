@@ -56,12 +56,12 @@
                                         <th>QUANTITY</th>
                                         <th>OPERATION</th>
                                   </tr>
-                                  <tr th:each="ob:${list}"> 
-                                         <td> </td>
+                                  <tr th:each="ob,ob1:${list}"> 
+                                         <td th:text="${ob1.count}"> </td>
                                          <td th:text="${ob.part.partcode}"></td>
                                          <td th:text="${ob.part.basecost}"></td>
                                          <td th:text="${ob.qty}"></td>
-                                         <td><a href="#" class="btn btn-danger">Remove</a> </td>
+                                         <td><a th:href="@{/po/removeDtl(poID=${ob.po.id},dtlId=${ob.id})}" class="btn btn-danger">Remove</a> </td>
                                   </tr>
                             </table>
                       

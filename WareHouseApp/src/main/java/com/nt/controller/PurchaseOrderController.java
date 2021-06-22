@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.nt.enums.PurchaseOrderDetail;
 import com.nt.model.PurchaseDtl;
 import com.nt.model.PurchaseOrder;
 import com.nt.service.IPart;
@@ -109,13 +110,27 @@ public class PurchaseOrderController {
 	}
 	
 	@PostMapping("/addPart")
-	public String addPoPart(@ModelAttribute PurchaseDtl purchasedtl ) {
+	public String addPoPart(@ModelAttribute PurchaseDtl purchasedtl) {
+		Integer id,id2=null;
 		//System.out.println(purchasedtl);
-		Integer id=service.addParts(purchasedtl);
+		
+		//Integer id=service.CountPurchaseDtl(poID,purchasedtl.getId());
+		id=service.addParts(purchasedtl);
+		id2=purchasedtl.getPo().getId();
+		service.updateStatus(PurchaseOrderDetail.OPEN.getValue(), id2);
 		System.out.println(id);
 		//return "redirect:parts?poID="+purchasedtl.getPo().getId();
 		return "redirect:parts?poID="+id;
 		
 	}
+	
+	@GetMapping("/removeDtl")
+	public String removePart(@RequestParam Integer dtlId,@RequestParam Integer poID) {
+		service.DeletePurchaseDtl(dtlId);
+		return "redirect:parts?poID="+poID;
+		
+	}
+	
+	
 	
 }//class
