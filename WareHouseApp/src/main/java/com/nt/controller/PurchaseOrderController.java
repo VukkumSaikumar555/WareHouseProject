@@ -117,7 +117,10 @@ public class PurchaseOrderController {
 		//Integer id=service.CountPurchaseDtl(poID,purchasedtl.getId());
 		id=service.addParts(purchasedtl);
 		id2=purchasedtl.getPo().getId();
-		service.updateStatus(PurchaseOrderDetail.OPEN.getValue(), id2);
+		if(service.getCountofOrderId(id2)>0 && service.getStatus(id2).equals(PurchaseOrderDetail.OPEN.getValue())) {
+			service.updateStatus(PurchaseOrderDetail.PICKING.getValue(), id2);
+			
+		}
 		System.out.println(id);
 		//return "redirect:parts?poID="+purchasedtl.getPo().getId();
 		return "redirect:parts?poID="+id;

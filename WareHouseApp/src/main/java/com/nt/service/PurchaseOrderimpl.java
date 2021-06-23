@@ -78,4 +78,10 @@ public class PurchaseOrderimpl implements IPurchaseOrder {
 		return id1;
 	}
 
+	@Override
+	public String getStatus(Integer id) {
+		String status=repo.getStatus(id);
+		return status;
+	}
+
 }

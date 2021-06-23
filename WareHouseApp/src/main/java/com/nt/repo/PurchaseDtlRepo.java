@@ -17,4 +17,6 @@ public interface PurchaseDtlRepo extends JpaRepository<PurchaseDtl, Integer> {
 	
 	@Query("SELECT COUNT(dtl.id) FROM PurchaseDtl dtl INNER JOIN dtl.po as po WHERE po.id=:id ")
 	Integer getCountofOrderId(Integer id);
+	
+	
 }

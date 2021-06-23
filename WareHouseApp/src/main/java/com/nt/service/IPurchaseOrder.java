@@ -2,6 +2,8 @@ package com.nt.service;
 
 import java.util.List;
 
+import org.springframework.data.jpa.repository.Query;
+
 import com.nt.model.PurchaseDtl;
 import com.nt.model.PurchaseOrder;
 
@@ -21,5 +23,9 @@ public interface IPurchaseOrder {
       
       //count Query
       public Integer getCountofOrderId(Integer id);
+      
+      //getstatus
+      
+  	public String getStatus(Integer id);
 
 }

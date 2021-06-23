@@ -11,5 +11,9 @@ public interface PurchaseOrderRepo extends JpaRepository<PurchaseOrder, Integer>
 	@Query("UPDATE PurchaseOrder SET status=:status WHERE id=:id")
 	@Modifying
 	public void updateStatus(String status,Integer id);
+	
+	
+	@Query("SELECT status FROM PurchaseOrder WHERE id=:id")
+	String getStatus(Integer id);
 
 }
