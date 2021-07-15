@@ -1,0 +1,60 @@
+		Angular Setup (by Mr.RAGHU)
+		javabyraghu@gmail.com
+--------------------------------------------------------------------
+FB:   http:facebook.com/groups/thejavatemple/
+
+Setup for Angular:-
+------------------------------------------------------------------
+#1 Download and Install Node JS:
+  https://nodejs.org/en/download/
+
+> Click on OS Option(Ex: Windows)
+> It will be downloaded as setup
+
+> Double click on setup file > next > Next > Finsih
+
+#2 Check installtion of Node using cmd prompt
+C:\Users\nareshit> node -v
+v12.16.3
+
+C:\Users\nareshit> npm -v
+6.14.4
+
+
+#2 Install Angular  (wait for : 10 mins to 1 hr after cmd)
+ Open cmd prompt and type command like
+
+> npm install -g @angular/cli
+
+#3 Check angular installtion using cmd
+
+> ng version
+
+#4 Download Visual Studio Code Software and install
+Goto : https://code.visualstudio.com/download
+Click on OS Option (Ex: Windows)
+
+> Double click on setup file > next > next > Finish
+
+#5 Open VS Code Editor
+> File > open folder > create new folder (ex: myangapps) > Open
+
+> press ctrl+`  (before to 1 Key)
+
+#6 create new project (using terminal)
+> ng new boot-student-app
+> press Y for Routing  and  click enter even for CSS
+
+WAIT for 15Min to 1Hr
+
+#7 Switch to App Folder
+> cd boot-student-app  (press enter)
+
+#8 Start app
+> ng serve --open
+
+WAIT for 15Min to 1Hr
+
+#9 Open browser and Enter 
+  http://localhost:4200/
+-----------------------------------------------------------------
